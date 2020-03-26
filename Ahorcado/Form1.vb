@@ -5,8 +5,13 @@
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
         borrar = 0
-        PictureBox1.Image = My.Resources._1
         PictureBox1.Visible = False
+
+        If (RadioButton1.Checked) Then
+            dificultad = RadioButton1.Text
+        Else
+            dificultad = RadioButton2.Text
+        End If
 
         If (Label1.Text.Equals("_")) Then
             MsgBox("Debes ingresar tu nombre")
@@ -124,8 +129,8 @@
     Public Sub borrar_caracter()
         If (borrar = 0) Then
             borrar += 1
-            PictureBox1.Visible = True
             PictureBox1.Image = My.Resources._1
+            PictureBox1.Visible = True
         ElseIf (borrar = 1) Then
             borrar += 1
             PictureBox1.Image = My.Resources._2
@@ -217,8 +222,17 @@
         escribir(e)
     End Sub
 
+    Private Sub RadioButton1_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles RadioButton1.KeyPress
+        escribir(e)
+    End Sub
+
+    Private Sub RadioButton2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles RadioButton2.KeyPress
+        escribir(e)
+    End Sub
+
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         MsgBox("Bienvenido, por favor ingresa tu nombre", MsgBoxStyle.OkOnly)
         Button1.Focus()
+        RadioButton1.Select()
     End Sub
 End Class

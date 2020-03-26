@@ -1,11 +1,12 @@
 ﻿Public Class Form2
-    Dim diccionario = New String() {"aguja ", "alambre ", "arete ", "bolsa ", "bandera ", "bufanda ", "carpeta ", "caramelo ", "cascanueces ", "diamante ", "dibujo ", "diente ", "empaque ", "etiqueta ", "esfera ", "filtro ", "florero ", "fuente ", "guante ", "globo ", "galleta ", "helado ", "hiedra ", "harmonica ", "incienso ", "interruptor ", "impresora ", "jarron ", "jabon ", "jirafa ", "lingote ", "linterna ", "lonchera ", "mostaza ", "marioneta ", "malvavisco ", "nomenclatura ", "nispero ", "nebulosa ", "ornamento ", "ocarina ", "ordenador ", "platillo ", "pelicula ", "pulgada ", "regalo ", "radio ", "resorte ", "sujetador ", "servilleta ", "sierra ", "temporizador ", "terciopelo ", "trompeta ", "ukelele ", "unidad ", "vainilla ", "vinagre ", "violin ", "xilofono ", "yogurt ", "yacimiento ", "yunque ", "zafiro ", "zanahoria ", "zapato ", "cebra ", "tucan ", "rinoceronte ", "cangrejo ", "delfin ", "pantera ", "tigre ", "koala ", "tortuga ", "mueble ", "murcielago ", "mapache ", "colibri ", "orangutan ", "caballo ", "elefante ", "raton ", "gallina ", "conejo ", "ciervo ", "coyote ", "lagarto ", "serpiente ", "hipopotamo ", "oveja ", "ardilla ", "aguila ", "escorpion ", "armadillo ", "hiena ", "alcon ", "camello ", "cocodrilo ", "araña ", "abeja ", "hormiga ", "insecto ", "animal ", "guacamayo ", "caracol ", "ornitorrinco ", "ballena ", "tiburon ", "camaron ", "gorila ", "cisne ", "flamenco ", "mariposa ", "nutria ", "paloma ", "buitre ", "cable ", "televisor ", "bosque ", "leche ", "universidad ", "computadora ", "cocina ", "plato ", "telefono ", "cargador ", " teclado ", "papelera ", "camioneta ", "ceramica ", "estante ", "nevera ", "revista ", "deporte ", "pintura ", "musica ", "cancion ", "titulo ", "almohada ", "madera ", "jungla ", "montaña", "barranco ", "cascada ", "oceano ", "continente", "naturaleza ", "cuchillo ", "tormenta "}
+    Dim diccionario = New String() {"aguja ", "alambre ", "arete ", "bolsa ", "bandera ", "bufanda ", "carpeta ", "caramelo ", "cascanueces ", "diamante ", "dibujo ", "diente ", "empaque ", "etiqueta ", "esfera ", "filtro ", "florero ", "fuente ", "guante ", "globo ", "galleta ", "helado ", "hiedra ", "harmonica ", "incienso ", "interruptor ", "impresora ", "jarron ", "jabon ", "jirafa ", "lingote ", "linterna ", "lonchera ", "mostaza ", "marioneta ", "malvavisco ", "nomenclatura ", "nispero ", "nebulosa ", "ornamento ", "ocarina ", "ordenador ", "platillo ", "pelicula ", "pulgada ", "regalo ", "radio ", "resorte ", "sujetador ", "servilleta ", "sierra ", "temporizador ", "terciopelo ", "trompeta ", "ukelele ", "unidad ", "vainilla ", "vinagre ", "violin ", "xilofono ", "yogurt ", "yacimiento ", "yunque ", "zafiro ", "zanahoria ", "zapato ", "cebra ", "tucan ", "rinoceronte ", "cangrejo ", "delfin ", "pantera ", "tigre ", "koala ", "tortuga ", "mueble ", "murcielago ", "mapache ", "colibri ", "orangutan ", "caballo ", "elefante ", "raton ", "gallina ", "conejo ", "ciervo ", "coyote ", "lagarto ", "serpiente ", "hipopotamo ", "oveja ", "ardilla ", "aguila ", "escorpion ", "armadillo ", "hiena ", "alcon ", "camello ", "cocodrilo ", "araña ", "abeja ", "hormiga ", "insecto ", "animal ", "guacamayo ", "caracol ", "ornitorrinco ", "ballena ", "tiburon ", "camaron ", "gorila ", "cisne ", "flamenco ", "mariposa ", "nutria ", "paloma ", "buitre ", "cable ", "televisor ", "bosque ", "leche ", "universidad ", "computadora ", "cocina ", "plato ", "telefono ", "cargador ", " teclado ", "papelera ", "camioneta ", "ceramica ", "estante ", "nevera ", "revista ", "deporte ", "pintura ", "musica ", "cancion ", "titulo ", "almohada ", "madera ", "jungla ", "montaña", "barranco ", "cascada ", "oceano ", "continente ", "naturaleza ", "cuchillo ", "tormenta "}
     'Nota: Cada palabra tiene un espacio al final ya que al realizar cualquier operación con la propiedad .Chars de un String, arroja el error System.IndexOutOfRangeException al llegar al limite de la longitud de la cadena de texto
     Dim num As Integer = Aleatorio(0, diccionario.length())
-    Dim intentos, errores, puntaje, aciertos As Integer
+    Dim letra_repetida, errores, puntaje, aciertos As Integer
     Dim palabra As String = diccionario(num)
     Dim letras As String = ""
-    
+    Dim secuencia_alt_f4 As Boolean
+
 
     Private Function Aleatorio(ByVal minimo As Integer, ByVal maximo As Integer) As Integer
         Randomize()
@@ -15,6 +16,19 @@
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         boton_reiniciar.Focus()
         colocar_espacios(palabra.Length)
+    End Sub
+
+    Private Sub Form2_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If (e.Alt And e.KeyCode = Keys.F4) Then
+            secuencia_alt_f4 = True
+        Else
+            secuencia_alt_f4 = False
+        End If
+    End Sub
+
+    Private Sub Form2_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        e.Cancel = secuencia_alt_f4
+        secuencia_alt_f4 = False
     End Sub
 
     Public Sub solo_letras(ByRef e As Windows.Forms.KeyPressEventArgs)
@@ -181,7 +195,7 @@
         respuesta = MsgBox("Perderás tu progreso, ¿Deseas reiniciar la partida?", MsgBoxStyle.YesNo)
 
         If (respuesta = vbYes) Then
-            intentos = 0
+            letra_repetida = 0
             errores = 0
             puntaje = 0
             aciertos = 0
@@ -223,44 +237,64 @@
 
     Private Sub boton_siguiente_Click(sender As Object, e As System.EventArgs) Handles boton_siguiente.Click
 
-        aciertos = 0
-        intentos = 0
-        errores = 0
-        letras = ""
+        If (Form1.dificultad = "Normal") Then
+            errores = 0
+            PictureBox1.Visible = False
+
+        Else
+
+            errores -= 5
+
+            If (errores <= 0) Then
+                errores = 0
+                PictureBox1.Visible = False
+            ElseIf (errores = 1) Then
+                PictureBox1.Image = My.Resources._1
+            ElseIf (errores = 2) Then
+                PictureBox1.Image = My.Resources._2
+            ElseIf (errores = 3) Then
+                PictureBox1.Image = My.Resources._3
+            ElseIf (errores = 4) Then
+                PictureBox1.Image = My.Resources._4
+            End If
+
+        End If
+
         num = Aleatorio(0, diccionario.length())
         palabra = diccionario(num)
+        letras = ""
+        aciertos = 0
+        letra_repetida = 0
 
-        PictureBox1.Visible = False
-        Label1.Visible = False
         Label1.Text = "_"
-        Label2.Visible = False
+        Label1.Visible = False
         Label2.Text = "_"
-        Label3.Visible = False
+        Label2.Visible = False
         Label3.Text = "_"
-        Label4.Visible = False
+        Label3.Visible = False
         Label4.Text = "_"
-        Label5.Visible = False
+        Label4.Visible = False
         Label5.Text = "_"
-        Label6.Visible = False
+        Label5.Visible = False
         Label6.Text = "_"
-        Label7.Visible = False
+        Label6.Visible = False
         Label7.Text = "_"
-        Label8.Visible = False
+        Label7.Visible = False
         Label8.Text = "_"
-        Label9.Visible = False
+        Label8.Visible = False
         Label9.Text = "_"
-        Label10.Visible = False
+        Label9.Visible = False
         Label10.Text = "_"
-        Label11.Visible = False
+        Label10.Visible = False
         Label11.Text = "_"
-        Label12.Visible = False
+        Label11.Visible = False
         Label12.Text = "_"
+        Label12.Visible = False
+
         boton_siguiente.Enabled = False
         boton_reiniciar.Enabled = True
         boton_reiniciar.Focus()
-
         colocar_espacios(palabra.Length)
-
     End Sub
 
     Private Sub boton_salir_Click(sender As Object, e As System.EventArgs) Handles boton_salir.Click
@@ -275,7 +309,7 @@
         End If
     End Sub
 
-    Private Sub verificar_palabra(ByRef aciertos)
+    Private Sub verificar_palabra()
         If (aciertos = palabra.Length - 1) Then
             puntaje += 10
             Label_score.Text = "Puntaje: " & puntaje
@@ -286,8 +320,11 @@
         End If
     End Sub
 
-    Private Sub verificar_errores(ByRef errores)
-        If (errores = 0) Then
+    Private Sub verificar_errores(ByRef e As Windows.Forms.KeyPressEventArgs)
+
+        If (Asc(e.KeyChar) = 32) Then
+            'Evita que si el jugador ingresa un espacio el juego lo tome como un error 
+        ElseIf (errores = 0) Then
             errores += 1
             PictureBox1.Show()
             PictureBox1.Image = My.Resources._1
@@ -328,7 +365,7 @@
             respuesta = MsgBox(Form1.nombre & " has perdido, tu puntaje es: " & puntaje & vbCrLf & "La palabra era " & palabra.Trim & ", ¿Quieres jugar otra vez?", MsgBoxStyle.YesNo)
 
             If (respuesta = vbYes) Then
-                intentos = 0
+                letra_repetida = 0
                 errores = 0
                 aciertos = 0
                 puntaje = 0
@@ -369,30 +406,36 @@
                 Form1.Visible = True
             End If
         End If
+
     End Sub
 
     Private Function verificar_repeticion(ByRef e As Windows.Forms.KeyPressEventArgs)
         'Verifica si el usuario ha ingresado una letra más de una vez
-        intentos = 0
-        letras += e.KeyChar & " "
+        letra_repetida = 0
 
-        For contador As Integer = 0 To letras.Length - 1
+        If (Asc(e.KeyChar) = 32) Then
+            'Evita que el jugador ingrese espacios en blanco
+        Else
+            letras += e.KeyChar & " "
 
-            If (e.KeyChar = letras.Chars(contador)) Then
+            For contador As Integer = 0 To letras.Length - 1
 
-                intentos += 1
-                verificar_palabra(aciertos)
+                If (e.KeyChar = letras.Chars(contador)) Then
 
-                If (intentos > 1) Then
-                    Return True
+                    letra_repetida += 1
+                    verificar_palabra()
+
+                    If (letra_repetida > 1) Then
+                        Return True
+                    End If
+
                 End If
 
-            End If
+            Next contador
 
-        Next contador
+            letras.Trim(" ")
 
-        letras.Trim(" ")
-
+        End If
     End Function
 
     Private Sub boton_reiniciar_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles boton_reiniciar.KeyPress
@@ -449,7 +492,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -481,7 +524,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -501,7 +544,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -511,16 +554,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 7) Then
@@ -578,7 +621,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -618,7 +661,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -645,7 +688,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -662,7 +705,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -672,16 +715,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 8) Then
@@ -758,7 +801,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -814,7 +857,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -854,7 +897,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -881,7 +924,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -898,7 +941,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
@@ -908,16 +951,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(6)) Then
                     Label7.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 9) Then
@@ -1027,7 +1070,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -1113,7 +1156,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -1178,7 +1221,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -1225,7 +1268,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -1257,7 +1300,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
@@ -1277,7 +1320,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(6)) Then
                     Label7.Text = e.KeyChar
@@ -1288,16 +1331,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(7)) Then
                     Label8.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 10) Then
@@ -1435,7 +1478,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -1543,7 +1586,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -1623,7 +1666,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -1679,7 +1722,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -1698,7 +1741,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
@@ -1714,7 +1757,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(6)) Then
                     Label7.Text = e.KeyChar
@@ -1727,7 +1770,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(7)) Then
                     Label8.Text = e.KeyChar
@@ -1737,16 +1780,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(8)) Then
                     Label9.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 11) Then
@@ -1898,7 +1941,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -2020,7 +2063,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -2117,7 +2160,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -2192,7 +2235,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -2248,7 +2291,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
@@ -2288,7 +2331,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(6)) Then
                     Label7.Text = e.KeyChar
@@ -2315,7 +2358,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(7)) Then
                     Label8.Text = e.KeyChar
@@ -2332,7 +2375,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(8)) Then
                     Label9.Text = e.KeyChar
@@ -2342,16 +2385,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(9)) Then
                     Label10.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 12) Then
@@ -2534,7 +2577,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -2684,7 +2727,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -2806,7 +2849,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -2903,7 +2946,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -2978,7 +3021,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
@@ -3034,7 +3077,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(6)) Then
                     Label7.Text = e.KeyChar
@@ -3074,7 +3117,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(7)) Then
                     Label8.Text = e.KeyChar
@@ -3101,7 +3144,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(8)) Then
                     Label9.Text = e.KeyChar
@@ -3118,7 +3161,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(9)) Then
                     Label10.Text = e.KeyChar
@@ -3128,16 +3171,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(10)) Then
                     Label11.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
 
             ElseIf (palabra.Length = 13) Then
@@ -3354,7 +3397,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(1)) Then
                     Label2.Text = e.KeyChar
@@ -3535,7 +3578,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(2)) Then
                     Label3.Text = e.KeyChar
@@ -3685,7 +3728,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(3)) Then
                     Label4.Text = e.KeyChar
@@ -3807,7 +3850,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(4)) Then
                     Label5.Text = e.KeyChar
@@ -3904,7 +3947,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(5)) Then
                     Label6.Text = e.KeyChar
@@ -3979,7 +4022,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(6)) Then
                     Label7.Text = e.KeyChar
@@ -4035,7 +4078,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(7)) Then
                     Label8.Text = e.KeyChar
@@ -4075,7 +4118,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(8)) Then
                     Label9.Text = e.KeyChar
@@ -4102,7 +4145,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(9)) Then
                     Label10.Text = e.KeyChar
@@ -4119,7 +4162,7 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(10)) Then
                     Label11.Text = e.KeyChar
@@ -4129,16 +4172,16 @@
                         aciertos += 1
                     End If
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 ElseIf (e.KeyChar = palabra.Chars(11)) Then
                     Label12.Text = e.KeyChar
                     aciertos += 1
 
-                    verificar_palabra(aciertos)
+                    verificar_palabra()
 
                 Else
-                    verificar_errores(errores)
+                    verificar_errores(e)
                 End If
             End If
         End If

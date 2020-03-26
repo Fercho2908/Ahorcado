@@ -33,6 +33,9 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -150,6 +153,43 @@ Partial Class Form1
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "_"
         '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButton1.Font = New System.Drawing.Font("Berlin Sans FB Demi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(12, 669)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(79, 22)
+        Me.RadioButton1.TabIndex = 11
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Normal"
+        Me.RadioButton1.UseVisualStyleBackColor = False
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButton2.Font = New System.Drawing.Font("Berlin Sans FB Demi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton2.Location = New System.Drawing.Point(12, 697)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(64, 22)
+        Me.RadioButton2.TabIndex = 12
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Difícil"
+        Me.RadioButton2.UseVisualStyleBackColor = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Berlin Sans FB Demi", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(12, 645)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(81, 18)
+        Me.Label9.TabIndex = 13
+        Me.Label9.Text = "Dificultad:"
+        '
         'Form1
         '
         Me.AcceptButton = Me.Button1
@@ -157,6 +197,9 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(554, 731)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.RadioButton2)
+        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -189,5 +232,8 @@ Partial Class Form1
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents Label9 As System.Windows.Forms.Label
 
 End Class
