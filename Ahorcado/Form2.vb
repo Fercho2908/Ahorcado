@@ -18,7 +18,7 @@
         colocar_espacios(palabra.Length)
     End Sub
 
-    Private Sub Form2_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Private Sub boton_reiniciar_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles boton_reiniciar.KeyDown
         If (e.Alt And e.KeyCode = Keys.F4) Then
             secuencia_alt_f4 = True
         Else
