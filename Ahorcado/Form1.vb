@@ -47,16 +47,6 @@
                 nombre += Label6.Text
                 nombre += Label7.Text
                 nombre += Label8.Text
-                Me.Hide()
-                Form2.Show()
-                Label1.Text = "_"
-                Label2.Text = "_"
-                Label3.Text = "_"
-                Label4.Text = "_"
-                Label5.Text = "_"
-                Label6.Text = "_"
-                Label7.Text = "_"
-                Label8.Text = "_"
             ElseIf (Char.IsLetter(Label7.Text)) Then
                 nombre += Label1.Text
                 nombre += Label2.Text
@@ -65,15 +55,6 @@
                 nombre += Label5.Text
                 nombre += Label6.Text
                 nombre += Label7.Text
-                Me.Hide()
-                Form2.Show()
-                Label1.Text = "_"
-                Label2.Text = "_"
-                Label3.Text = "_"
-                Label4.Text = "_"
-                Label5.Text = "_"
-                Label6.Text = "_"
-                Label7.Text = "_"
             ElseIf (Char.IsLetter(Label6.Text)) Then
                 nombre += Label1.Text
                 nombre += Label2.Text
@@ -81,39 +62,30 @@
                 nombre += Label4.Text
                 nombre += Label5.Text
                 nombre += Label6.Text
-                Me.Hide()
-                Form2.Show()
-                Label1.Text = "_"
-                Label2.Text = "_"
-                Label3.Text = "_"
-                Label4.Text = "_"
-                Label5.Text = "_"
-                Label6.Text = "_"
             ElseIf (Char.IsLetter(Label5.Text)) Then
                 nombre += Label1.Text
                 nombre += Label2.Text
                 nombre += Label3.Text
                 nombre += Label4.Text
                 nombre += Label5.Text
-                Me.Hide()
-                Form2.Show()
-                Label1.Text = "_"
-                Label2.Text = "_"
-                Label3.Text = "_"
-                Label4.Text = "_"
-                Label5.Text = "_"
             ElseIf (Char.IsLetter(Label4.Text)) Then
                 nombre += Label1.Text
                 nombre += Label2.Text
                 nombre += Label3.Text
                 nombre += Label4.Text
-                Me.Hide()
-                Form2.Show()
-                Label1.Text = "_"
-                Label2.Text = "_"
-                Label3.Text = "_"
-                Label4.Text = "_"
             End If
+
+            Form2.Show()
+            Me.Hide()
+
+            Label1.Text = "_"
+            Label2.Text = "_"
+            Label3.Text = "_"
+            Label4.Text = "_"
+            Label5.Text = "_"
+            Label6.Text = "_"
+            Label7.Text = "_"
+            Label8.Text = "_"
         End If
     End Sub
 
@@ -168,7 +140,7 @@
         End If
     End Sub
 
-    Public Sub escribir(ByRef e As System.Windows.Forms.KeyPressEventArgs)
+    Public Sub Escribir(ByRef e As System.Windows.Forms.KeyPressEventArgs)
         solo_letras(e)
 
         If (Label1.Text.Equals("_") And Char.IsLetter(e.KeyChar)) Then
@@ -191,29 +163,23 @@
 
             If (Char.IsLetter(Label8.Text)) Then
                 Label8.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label7.Text)) Then
                 Label7.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label6.Text)) Then
                 Label6.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label5.Text)) Then
                 Label5.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label4.Text)) Then
                 Label4.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label3.Text)) Then
                 Label3.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label2.Text)) Then
                 Label2.Text = "_"
-                borrar_caracter()
             ElseIf (Char.IsLetter(Label1.Text)) Then
                 Label1.Text = "_"
-                borrar_caracter()
             End If
+
+            borrar_caracter()
 
         End If
     End Sub

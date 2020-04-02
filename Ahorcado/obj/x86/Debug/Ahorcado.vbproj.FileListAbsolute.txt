@@ -28,3 +28,5 @@ C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form1.resources
 C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form2.resources
 C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Resources.resources
 C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.GenerateResource.Cache
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbprojAssemblyReference.cache
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.CoreCompileInputs.cache
