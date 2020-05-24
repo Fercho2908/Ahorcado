@@ -1,6 +1,23 @@
 ﻿Public Class Form1
     Public Shared nombre, dificultad As String
-    Dim borrar As Integer = 0
+    Dim borrar, posicion_x, posicion_y As Integer
+    Dim arrastre As Boolean
+
+    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+        posicion_x = e.X
+        posicion_y = e.Y
+        arrastre = True
+    End Sub
+
+    Private Sub Form1_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+        arrastre = False
+    End Sub
+
+    Private Sub Form1_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+        If (arrastre) Then
+            Me.Location = Me.PointToScreen(New Point(Me.MousePosition.X - Me.Location.X - posicion_x, Me.MousePosition.Y - Me.Location.Y - posicion_y))
+        End If
+    End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
@@ -193,7 +210,23 @@
     End Sub
 
     Private Sub RadioButton2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles RadioButton2.KeyPress
-        escribir(e)
+        Escribir(e)
+    End Sub
+
+    Private Sub boton_cerrar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles boton_cerrar.KeyPress
+        Escribir(e)
+    End Sub
+
+    Private Sub boton_min_KeyPress(sender As Object, e As KeyPressEventArgs) Handles boton_min.KeyPress
+        Escribir(e)
+    End Sub
+
+    Private Sub boton_cerrar_Click(sender As Object, e As EventArgs) Handles boton_cerrar.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub boton_min_Click(sender As Object, e As EventArgs) Handles boton_min.Click
+        WindowState = FormWindowState.Minimized
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load

@@ -150,6 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono_ahorcado.ico" />
+    <None Include="Resources\Icono Minimizar.png" />
+    <None Include="Resources\Icono cerrar FN.png" />
     <None Include="Resources\10.png" />
     <None Include="Resources\9.png" />
     <None Include="Resources\8_1.png" />

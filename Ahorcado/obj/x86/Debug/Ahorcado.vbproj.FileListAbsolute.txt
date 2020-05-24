@@ -1,32 +1,11 @@
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form1.resources
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.GenerateResource.Cache
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\bin\Debug\Ahorcado.pdb
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\bin\Debug\Ahorcado.xml
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Resources.resources
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb
-C:\Users\Danle\documents\visual studio 2010\Projects\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form2.resources
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb
-C:\Users\García\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe
-C:\Users\García\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.pdb
-C:\Users\García\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.xml
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form1.resources
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form2.resources
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Resources.resources
-C:\Users\García\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.GenerateResource.Cache
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.pdb
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.xml
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form1.resources
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form2.resources
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Resources.resources
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.GenerateResource.Cache
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbprojAssemblyReference.cache
-C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.CoreCompileInputs.cache
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.pdb
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.xml
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbprojResolveAssemblyReference.cache
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form1.resources
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form2.resources
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Resources.resources
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.GenerateResource.Cache
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
+C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb

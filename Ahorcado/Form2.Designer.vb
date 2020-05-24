@@ -40,6 +40,8 @@ Partial Class Form2
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.boton_reiniciar = New System.Windows.Forms.Button()
         Me.boton_salir = New System.Windows.Forms.Button()
+        Me.boton_min = New System.Windows.Forms.Button()
+        Me.boton_cerrar = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label_score = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -248,6 +250,38 @@ Partial Class Form2
         Me.boton_salir.UseCompatibleTextRendering = True
         Me.boton_salir.UseVisualStyleBackColor = False
         '
+        'boton_min
+        '
+        Me.boton_min.BackColor = System.Drawing.Color.Transparent
+        Me.boton_min.BackgroundImage = Global.Ahorcado.My.Resources.Resources.Icono_Minimizar
+        Me.boton_min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.boton_min.FlatAppearance.BorderSize = 0
+        Me.boton_min.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BurlyWood
+        Me.boton_min.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tan
+        Me.boton_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.boton_min.Location = New System.Drawing.Point(484, 0)
+        Me.boton_min.Name = "boton_min"
+        Me.boton_min.Size = New System.Drawing.Size(35, 35)
+        Me.boton_min.TabIndex = 27
+        Me.ToolTip1.SetToolTip(Me.boton_min, "Minimizar")
+        Me.boton_min.UseVisualStyleBackColor = False
+        '
+        'boton_cerrar
+        '
+        Me.boton_cerrar.BackColor = System.Drawing.Color.Transparent
+        Me.boton_cerrar.BackgroundImage = Global.Ahorcado.My.Resources.Resources.Icono_cerrar_FN
+        Me.boton_cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.boton_cerrar.FlatAppearance.BorderSize = 0
+        Me.boton_cerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.boton_cerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.boton_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.boton_cerrar.Location = New System.Drawing.Point(519, 0)
+        Me.boton_cerrar.Name = "boton_cerrar"
+        Me.boton_cerrar.Size = New System.Drawing.Size(35, 35)
+        Me.boton_cerrar.TabIndex = 26
+        Me.ToolTip1.SetToolTip(Me.boton_cerrar, "Cerrar")
+        Me.boton_cerrar.UseVisualStyleBackColor = False
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -278,6 +312,8 @@ Partial Class Form2
         Me.BackgroundImage = Global.Ahorcado.My.Resources.Resources.fondo_2
         Me.ClientSize = New System.Drawing.Size(554, 731)
         Me.ControlBox = False
+        Me.Controls.Add(Me.boton_min)
+        Me.Controls.Add(Me.boton_cerrar)
         Me.Controls.Add(Me.Label_score)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.boton_salir)
@@ -296,7 +332,7 @@ Partial Class Form2
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Berlin Sans FB Demi", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form2"
@@ -325,4 +361,6 @@ Partial Class Form2
     Friend WithEvents boton_salir As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label_score As System.Windows.Forms.Label
+    Friend WithEvents boton_min As Button
+    Friend WithEvents boton_cerrar As Button
 End Class

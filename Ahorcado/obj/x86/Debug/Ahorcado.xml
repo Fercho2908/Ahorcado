@@ -87,6 +87,16 @@ Ahorcado
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Ahorcado.My.Resources.Resources.Icono_cerrar_FN">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Ahorcado.My.Resources.Resources.Icono_Minimizar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Ahorcado.My.Resources.Resources.Mesa_de_trabajo">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
