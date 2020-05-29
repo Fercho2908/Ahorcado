@@ -355,9 +355,9 @@
         Form2.letras = ""
         Form2.Label_score.Text = "Puntaje: " & Form2.puntaje
         Form2.diccionario = New String() {"aguja ", "alambre ", "arete ", "bolsa ", "bandera ", "bufanda ", "carpeta ", "caramelo ", "cascanueces ", "diamante ", "dibujo ", "diente ", "empaque ", "etiqueta ", "esfera ", "filtro ", "florero ", "fuente ", "guante ", "globo ", "galleta ", "helado ", "hiedra ", "harmonica ", "incienso ", "interruptor ", "impresora ", "jarron ", "jabon ", "jirafa ", "lingote ", "linterna ", "lonchera ", "mostaza ", "marioneta ", "malvavisco ", "nomenclatura ", "nispero ", "nebulosa ", "ornamento ", "ocarina ", "ordenador ", "platillo ", "pelicula ", "pulgada ", "regalo ", "radio ", "resorte ", "sujetador ", "servilleta ", "sierra ", "temporizador ", "terciopelo ", "trompeta ", "ukelele ", "unidad ", "vainilla ", "vinagre ", "violin ", "xilofono ", "yogurt ", "yacimiento ", "yunque ", "zafiro ", "zanahoria ", "zapato ", "cebra ", "tucan ", "rinoceronte ", "cangrejo ", "delfin ", "pantera ", "tigre ", "koala ", "tortuga ", "mueble ", "murcielago ", "mapache ", "colibri ", "orangutan ", "caballo ", "elefante ", "raton ", "gallina ", "conejo ", "ciervo ", "coyote ", "lagarto ", "serpiente ", "hipopotamo ", "oveja ", "ardilla ", "aguila ", "escorpion ", "armadillo ", "hiena ", "alcon ", "camello ", "cocodrilo ", "araña ", "abeja ", "hormiga ", "insecto ", "animal ", "guacamayo ", "caracol ", "ornitorrinco ", "ballena ", "tiburon ", "camaron ", "gorila ", "cisne ", "flamenco ", "mariposa ", "nutria ", "paloma ", "buitre ", "cable ", "televisor ", "bosque ", "leche ", "universidad ", "computadora ", "cocina ", "plato ", "telefono ", "cargador ", "teclado ", "papelera ", "camioneta ", "ceramica ", "estante ", "nevera ", "revista ", "deporte ", "pintura ", "musica ", "cancion ", "titulo ", "almohada ", "madera ", "jungla ", "montaña ", "barranco ", "cascada ", "oceano ", "continente ", "naturaleza ", "cuchillo ", "tormenta ", "perro ", "burro ", "zorro ", ""}
-        Form2.palabras_adivinadas = 0
         Form2.num = Aleatorio(1, Form2.diccionario.length())
         Form2.palabra = Form2.diccionario(Form2.num - 1) 'El -1 es para evitar el error System.IndexOutOfRangeException y para que también pueda llegar a la posición 0 del arreglo
+        Form2.PictureBox1.Visible = False
 
         Limpiar_espacios()
         Colocar_espacios(Form2.palabra.Length)
@@ -365,60 +365,41 @@
 
     Public Sub Siguiente_nivel()
 
-        If (Form2.palabras_adivinadas = Form2.diccionario.Length) Then
-            MsgBox("¡Felicidades " & Form1.nombre & ", has adivinado todas la palabras!")
+        If (Form1.dificultad = "Normal") Then
+            Form2.errores = 0
+            Form2.PictureBox1.Visible = False
+
         Else
 
-            If (Form1.dificultad = "Normal") Then
+            Form2.errores -= 5
+
+            If (Form2.errores <= 0) Then
                 Form2.errores = 0
                 Form2.PictureBox1.Visible = False
-
-            Else
-
-                Form2.errores -= 5
-
-                If (Form2.errores <= 0) Then
-                    Form2.errores = 0
-                    Form2.PictureBox1.Visible = False
-                ElseIf (Form2.errores = 1) Then
-                    Form2.PictureBox1.Image = My.Resources._1
-                ElseIf (Form2.errores = 2) Then
-                    Form2.PictureBox1.Image = My.Resources._2
-                ElseIf (Form2.errores = 3) Then
-                    Form2.PictureBox1.Image = My.Resources._3
-                ElseIf (Form2.errores = 4) Then
-                    Form2.PictureBox1.Image = My.Resources._4
-                End If
-
+            ElseIf (Form2.errores = 1) Then
+                Form2.PictureBox1.Image = My.Resources._1
+            ElseIf (Form2.errores = 2) Then
+                Form2.PictureBox1.Image = My.Resources._2
+            ElseIf (Form2.errores = 3) Then
+                Form2.PictureBox1.Image = My.Resources._3
+            ElseIf (Form2.errores = 4) Then
+                Form2.PictureBox1.Image = My.Resources._4
             End If
 
-            Form2.palabras_adivinadas += 1
-            Form2.diccionario(Form2.num - 1) = ""
-
-            Form2.num = Aleatorio(1, Form2.diccionario.length())
-            Form2.palabra = Form2.diccionario(Form2.num - 1) 'El -1 es para evitar el error System.IndexOutOfRangeException al llegar al limite del arreglo y para que también pueda llegar a la posición 0 del mismo
-            evitar_palabras_adivinadas()
-
-            Form2.letras = ""
-            Form2.aciertos = 0
-            Form2.letra_repetida = 0
-
-            Form2.boton_siguiente.Enabled = False
-            Form2.boton_reiniciar.Enabled = True
-            Form2.boton_reiniciar.Focus()
-            Limpiar_espacios()
-            Colocar_espacios(Form2.palabra.Length)
-
         End If
-    End Sub
 
-    Public Sub evitar_palabras_adivinadas()
-        If (Form2.palabra = "") Then
-            Form2.num = Aleatorio(0, Form2.diccionario.length())
-            Form2.palabra = Form2.diccionario(Form2.num)
-            evitar_palabras_adivinadas()
-        Else
-            Exit Sub
-        End If
+        Form2.num = Aleatorio(1, Form2.diccionario.length())
+        Form2.palabra = Form2.diccionario(Form2.num - 1) 'El -1 es para evitar el error System.IndexOutOfRangeException al llegar al limite del arreglo y para que también pueda llegar a la posición 0 del mismo
+
+        Form2.letras = ""
+        Form2.aciertos = 0
+        Form2.letra_repetida = 0
+
+        Form2.boton_siguiente.Enabled = False
+        Form2.boton_reiniciar.Enabled = True
+        Form2.boton_reiniciar.Focus()
+        Limpiar_espacios()
+        Colocar_espacios(Form2.palabra.Length)
+
     End Sub
 End Module

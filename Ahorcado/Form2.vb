@@ -5,7 +5,6 @@
     Public num As Integer = Aleatorio(1, diccionario.length())
     Public letra_repetida, errores, puntaje, aciertos As Integer
     Public palabra As String = diccionario(num - 1) 'El -1 es para evitar el error System.IndexOutOfRangeException y para que también pueda llegar a la posición 0 del arreglo
-    Public palabras_adivinadas As Integer = 0
     Public letras As String = ""
     Dim secuencia_alt_f4 As Boolean
     Dim posicion_x, posicion_y As Integer
