@@ -9,3 +9,15 @@ C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.Generate
 C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
 C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
 C:\Users\Garcia\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.exe
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.pdb
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\bin\Debug\Ahorcado.xml
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbprojAssemblyReference.cache
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form1.resources
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form2.resources
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Resources.resources
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.GenerateResource.cache
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.vbproj.CoreCompileInputs.cache
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
+C:\Users\Danle\Desktop\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb
