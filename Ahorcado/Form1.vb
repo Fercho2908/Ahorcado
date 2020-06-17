@@ -22,6 +22,7 @@
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
         borrar = 0
+        nombre = ""
         PictureBox1.Visible = False
 
         If (RadioButton1.Checked) Then
@@ -32,68 +33,22 @@
 
         If (Label1.Text.Equals("_")) Then
             MsgBox("Debes ingresar tu nombre")
-        ElseIf (Label4.Text.Equals("_")) Then
+        Else
 
-            nombre = ""
-            nombre += Label1.Text
+            nombre = Label1.Text
             nombre += Label2.Text
             nombre += Label3.Text
+            nombre += Label4.Text
+            nombre += Label5.Text
+            nombre += Label6.Text
+            nombre += Label7.Text
+            nombre += Label8.Text
 
-            Dim respuesta
-            respuesta = MsgBox("¿Tu nombre es " & nombre & "?", vbYesNo)
-
-            If (respuesta = vbYes) Then
-                Me.Hide()
-                Form2.Show()
-                Label1.Text = "_"
-                Label2.Text = "_"
-                Label3.Text = "_"
-            Else
-                MsgBox("Por favor, introduce tu nombre correctamente")
-            End If
-
-        Else
-            nombre = ""
-
-            If (Char.IsLetter(Label8.Text)) Then
-                nombre += Label1.Text
-                nombre += Label2.Text
-                nombre += Label3.Text
-                nombre += Label4.Text
-                nombre += Label5.Text
-                nombre += Label6.Text
-                nombre += Label7.Text
-                nombre += Label8.Text
-            ElseIf (Char.IsLetter(Label7.Text)) Then
-                nombre += Label1.Text
-                nombre += Label2.Text
-                nombre += Label3.Text
-                nombre += Label4.Text
-                nombre += Label5.Text
-                nombre += Label6.Text
-                nombre += Label7.Text
-            ElseIf (Char.IsLetter(Label6.Text)) Then
-                nombre += Label1.Text
-                nombre += Label2.Text
-                nombre += Label3.Text
-                nombre += Label4.Text
-                nombre += Label5.Text
-                nombre += Label6.Text
-            ElseIf (Char.IsLetter(Label5.Text)) Then
-                nombre += Label1.Text
-                nombre += Label2.Text
-                nombre += Label3.Text
-                nombre += Label4.Text
-                nombre += Label5.Text
-            ElseIf (Char.IsLetter(Label4.Text)) Then
-                nombre += Label1.Text
-                nombre += Label2.Text
-                nombre += Label3.Text
-                nombre += Label4.Text
-            End If
-
-            Form2.Show()
-            Me.Hide()
+            For i As Integer = 0 To nombre.Length
+                If (nombre.EndsWith("_")) Then
+                    nombre = nombre.TrimEnd("_")
+                End If
+            Next
 
             Label1.Text = "_"
             Label2.Text = "_"
@@ -103,6 +58,9 @@
             Label6.Text = "_"
             Label7.Text = "_"
             Label8.Text = "_"
+
+            Form2.Show()
+            Me.Hide()
         End If
     End Sub
 
@@ -116,6 +74,25 @@
     End Sub
 
     Public Sub borrar_caracter()
+
+        If (Char.IsLetter(Label8.Text)) Then
+            Label8.Text = "_"
+        ElseIf (Char.IsLetter(Label7.Text)) Then
+            Label7.Text = "_"
+        ElseIf (Char.IsLetter(Label6.Text)) Then
+            Label6.Text = "_"
+        ElseIf (Char.IsLetter(Label5.Text)) Then
+            Label5.Text = "_"
+        ElseIf (Char.IsLetter(Label4.Text)) Then
+            Label4.Text = "_"
+        ElseIf (Char.IsLetter(Label3.Text)) Then
+            Label3.Text = "_"
+        ElseIf (Char.IsLetter(Label2.Text)) Then
+            Label2.Text = "_"
+        ElseIf (Char.IsLetter(Label1.Text)) Then
+            Label1.Text = "_"
+        End If
+
         If (borrar = 0) Then
             borrar += 1
             PictureBox1.Image = My.Resources._1
@@ -178,26 +155,9 @@
             Label8.Text = e.KeyChar
         ElseIf (Asc(e.KeyChar) = 8) Then
 
-            If (Char.IsLetter(Label8.Text)) Then
-                Label8.Text = "_"
-            ElseIf (Char.IsLetter(Label7.Text)) Then
-                Label7.Text = "_"
-            ElseIf (Char.IsLetter(Label6.Text)) Then
-                Label6.Text = "_"
-            ElseIf (Char.IsLetter(Label5.Text)) Then
-                Label5.Text = "_"
-            ElseIf (Char.IsLetter(Label4.Text)) Then
-                Label4.Text = "_"
-            ElseIf (Char.IsLetter(Label3.Text)) Then
-                Label3.Text = "_"
-            ElseIf (Char.IsLetter(Label2.Text)) Then
-                Label2.Text = "_"
-            ElseIf (Char.IsLetter(Label1.Text)) Then
-                Label1.Text = "_"
+            If (Char.IsLetter(Label1.Text)) Then
+                borrar_caracter()
             End If
-
-            borrar_caracter()
-
         End If
     End Sub
 
@@ -230,7 +190,7 @@
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        MsgBox("Bienvenido, por favor ingresa tu nombre", MsgBoxStyle.OkOnly)
+        MsgBox("                                           ¡Bienvenido!" & vbCrLf & "Presiona 'Aceptar' e ingresa tu nombre para iniciar el juego.", MsgBoxStyle.OkOnly)
         Button1.Focus()
         RadioButton1.Select()
     End Sub
