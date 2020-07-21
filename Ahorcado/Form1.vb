@@ -124,7 +124,7 @@
         ElseIf (borrar = 9) Then
             PictureBox1.Image = My.Resources._10
 
-            Dim respuesta = MsgBox("No has empezado la partida y ya andas perdiendo, ¿Seguro que quieres jugar?", MsgBoxStyle.YesNo)
+            Dim respuesta = MsgBox("No has empezado la partida y ya te andas ahorcando, ¿Seguro que quieres jugar?", MsgBoxStyle.YesNo)
 
             If (respuesta = vbYes) Then
                 MsgBox("Dele campeón", MsgBoxStyle.OkOnly)
@@ -181,6 +181,15 @@
         Escribir(e)
     End Sub
 
+    Private Sub Button3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Button3.KeyPress
+        Escribir(e)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Form3.Show()
+        Me.Hide()
+    End Sub
+
     Private Sub boton_cerrar_Click(sender As Object, e As EventArgs) Handles boton_cerrar.Click
         Application.Exit()
     End Sub
@@ -194,4 +203,5 @@
         Button1.Focus()
         RadioButton1.Select()
     End Sub
+
 End Class

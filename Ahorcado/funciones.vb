@@ -108,7 +108,7 @@
 
             Dim respuesta
             UCase(Form2.palabra.Chars(0))
-            respuesta = MsgBox(Form1.nombre & " has perdido, tu puntaje es: " & Form2.puntaje & vbCrLf & "La palabra era " & Form2.palabra.Trim & ", ¿Quieres jugar otra vez?", MsgBoxStyle.YesNo)
+            respuesta = MsgBox(Form1.nombre & " has perdido, adivinaste " & Form2.palabras_adivinadas & " palabras y tu puntaje es: " & Form2.puntaje & vbCrLf & "La palabra era " & Form2.palabra.Trim & ", ¿Quieres jugar otra vez?", MsgBoxStyle.YesNo)
 
             If (respuesta = vbYes) Then
                 Reiniciar_juego()
@@ -129,43 +129,33 @@
         For contador As Integer = 0 To Form2.palabra.Length - 1
             If (LCase(e.KeyChar) = Form2.palabra.Chars(contador) And Char.IsLetter(e.KeyChar)) Then
                 letra_correcta = True
+                Form2.aciertos += 1
+
                 Select Case contador
                     Case 0
                         Form2.Label1.Text = UCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 1
                         Form2.Label2.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 2
                         Form2.Label3.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 3
                         Form2.Label4.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 4
                         Form2.Label5.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 5
                         Form2.Label6.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 6
                         Form2.Label7.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 7
                         Form2.Label8.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 8
                         Form2.Label9.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 9
                         Form2.Label10.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 10
                         Form2.Label11.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                     Case 11
                         Form2.Label12.Text = LCase(e.KeyChar)
-                        Form2.aciertos += 1
                 End Select
             End If
         Next contador
@@ -352,6 +342,7 @@
         Form2.errores = 0
         Form2.puntaje = 0
         Form2.aciertos = 0
+        Form2.palabras_adivinadas = 0
         Form2.letras = ""
         Form2.Label_score.Text = "Puntaje: " & Form2.puntaje
         Form2.diccionario = New String() {"aguja ", "alambre ", "arete ", "bolsa ", "bandera ", "bufanda ", "carpeta ", "caramelo ", "cascanueces ", "diamante ", "dibujo ", "diente ", "empaque ", "etiqueta ", "esfera ", "filtro ", "florero ", "fuente ", "guante ", "globo ", "galleta ", "helado ", "hiedra ", "harmonica ", "incienso ", "interruptor ", "impresora ", "jarron ", "jabon ", "jirafa ", "lingote ", "linterna ", "lonchera ", "mostaza ", "marioneta ", "malvavisco ", "nomenclatura ", "nispero ", "nebulosa ", "ornamento ", "ocarina ", "ordenador ", "platillo ", "pelicula ", "pulgada ", "regalo ", "radio ", "resorte ", "sujetador ", "servilleta ", "sierra ", "temporizador ", "terciopelo ", "trompeta ", "ukelele ", "unidad ", "vainilla ", "vinagre ", "violin ", "xilofono ", "yogurt ", "yacimiento ", "yunque ", "zafiro ", "zanahoria ", "zapato ", "cebra ", "tucan ", "rinoceronte ", "cangrejo ", "delfin ", "pantera ", "tigre ", "koala ", "tortuga ", "mueble ", "murcielago ", "mapache ", "colibri ", "orangutan ", "caballo ", "elefante ", "raton ", "gallina ", "conejo ", "ciervo ", "coyote ", "lagarto ", "serpiente ", "hipopotamo ", "oveja ", "ardilla ", "aguila ", "escorpion ", "armadillo ", "hiena ", "alcon ", "camello ", "cocodrilo ", "araña ", "abeja ", "hormiga ", "insecto ", "animal ", "guacamayo ", "caracol ", "ornitorrinco ", "ballena ", "tiburon ", "camaron ", "gorila ", "cisne ", "flamenco ", "mariposa ", "nutria ", "paloma ", "buitre ", "cable ", "televisor ", "bosque ", "leche ", "universidad ", "computadora ", "cocina ", "plato ", "telefono ", "cargador ", "teclado ", "papelera ", "camioneta ", "ceramica ", "estante ", "nevera ", "revista ", "deporte ", "pintura ", "musica ", "cancion ", "titulo ", "almohada ", "madera ", "jungla ", "montaña ", "barranco ", "cascada ", "oceano ", "continente ", "naturaleza ", "cuchillo ", "tormenta ", "perro ", "burro ", "zorro ", ""}
@@ -371,21 +362,37 @@
 
         Else
 
-            Form2.errores -= 5
+            If (Form2.errores Mod 2 = 0) Then
+                Form2.errores /= 2
 
-            If (Form2.errores <= 0) Then
-                Form2.errores = 0
-                Form2.PictureBox1.Visible = False
-            ElseIf (Form2.errores = 1) Then
-                Form2.PictureBox1.Image = My.Resources._1
-            ElseIf (Form2.errores = 2) Then
-                Form2.PictureBox1.Image = My.Resources._2
-            ElseIf (Form2.errores = 3) Then
-                Form2.PictureBox1.Image = My.Resources._3
-            ElseIf (Form2.errores = 4) Then
-                Form2.PictureBox1.Image = My.Resources._4
+                If (Form2.errores = 1) Then
+                    Form2.PictureBox1.Image = My.Resources._1
+                ElseIf (Form2.errores = 2) Then
+                    Form2.PictureBox1.Image = My.Resources._2
+                ElseIf (Form2.errores = 3) Then
+                    Form2.PictureBox1.Image = My.Resources._3
+                Else
+                    Form2.PictureBox1.Image = My.Resources._4
+                End If
+
+            Else
+                If (Form2.errores = 1) Then
+                    Form2.errores = 0
+                    Form2.PictureBox1.Visible = False
+                ElseIf (Form2.errores = 3) Then
+                    Form2.errores = 1
+                    Form2.PictureBox1.Image = My.Resources._1
+                ElseIf (Form2.errores = 5) Then
+                    Form2.errores = 2
+                    Form2.PictureBox1.Image = My.Resources._2
+                ElseIf (Form2.errores = 7) Then
+                    Form2.errores = 3
+                    Form2.PictureBox1.Image = My.Resources._3
+                Else
+                    Form2.errores = 4
+                    Form2.PictureBox1.Image = My.Resources._4
+                End If
             End If
-
         End If
 
         Form2.num = Aleatorio(1, Form2.diccionario.length())
@@ -394,6 +401,7 @@
         Form2.letras = ""
         Form2.aciertos = 0
         Form2.letra_repetida = 0
+        Form2.palabras_adivinadas += 1
 
         Form2.boton_siguiente.Enabled = False
         Form2.boton_reiniciar.Enabled = True

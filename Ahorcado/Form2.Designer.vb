@@ -44,6 +44,10 @@ Partial Class Form2
         Me.boton_cerrar = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label_score = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -244,7 +248,7 @@ Partial Class Form2
         Me.boton_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.boton_salir.Location = New System.Drawing.Point(22, 681)
         Me.boton_salir.Name = "boton_salir"
-        Me.boton_salir.Size = New System.Drawing.Size(40, 38)
+        Me.boton_salir.Size = New System.Drawing.Size(40, 40)
         Me.boton_salir.TabIndex = 23
         Me.ToolTip1.SetToolTip(Me.boton_salir, "Salir")
         Me.boton_salir.UseCompatibleTextRendering = True
@@ -305,6 +309,40 @@ Partial Class Form2
         Me.Label_score.TabIndex = 25
         Me.Label_score.Text = "Puntaje: 0"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Tan
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(554, 1)
+        Me.Panel1.TabIndex = 28
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Tan
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1, 742)
+        Me.Panel2.TabIndex = 29
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Tan
+        Me.Panel3.Location = New System.Drawing.Point(553, -6)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1, 742)
+        Me.Panel3.TabIndex = 30
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.Tan
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(0, 730)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(554, 1)
+        Me.Panel4.TabIndex = 31
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -312,6 +350,10 @@ Partial Class Form2
         Me.BackgroundImage = Global.Ahorcado.My.Resources.Resources.fondo_2
         Me.ClientSize = New System.Drawing.Size(554, 731)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.boton_min)
         Me.Controls.Add(Me.boton_cerrar)
         Me.Controls.Add(Me.Label_score)
@@ -363,4 +405,8 @@ Partial Class Form2
     Friend WithEvents Label_score As System.Windows.Forms.Label
     Friend WithEvents boton_min As Button
     Friend WithEvents boton_cerrar As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
 End Class

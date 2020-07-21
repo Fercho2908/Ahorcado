@@ -33,3 +33,4 @@ C:\Users\Garcia\Source\Repos\Fercho2908\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado
 C:\Users\Garcia\Source\Repos\Fercho2908\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.exe
 C:\Users\Garcia\Source\Repos\Fercho2908\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.xml
 C:\Users\Garcia\Source\Repos\Fercho2908\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.pdb
+C:\Users\Garcia\Source\Repos\Fercho2908\Ahorcado\Ahorcado\obj\x86\Debug\Ahorcado.Form3.resources

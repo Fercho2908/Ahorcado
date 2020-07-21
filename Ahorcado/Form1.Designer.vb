@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -40,6 +40,11 @@ Partial Class Form1
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.boton_cerrar = New System.Windows.Forms.Button()
         Me.boton_min = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,6 +52,8 @@ Partial Class Form1
         '
         Me.Button1.BackColor = System.Drawing.Color.Tan
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BurlyWood
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AntiqueWhite
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Berlin Sans FB Demi", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(243, 692)
@@ -167,6 +174,8 @@ Partial Class Form1
         Me.RadioButton1.TabIndex = 11
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Normal"
+        Me.ToolTip1.SetToolTip(Me.RadioButton1, "Al adivinar una palabra obtendrás 10 puntos y se reestableceran todos los intento" &
+        "s")
         Me.RadioButton1.UseVisualStyleBackColor = False
         '
         'RadioButton2
@@ -180,6 +189,8 @@ Partial Class Form1
         Me.RadioButton2.TabIndex = 12
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Difícil"
+        Me.ToolTip1.SetToolTip(Me.RadioButton2, "Al adivinar una palabra obtendrás 20 puntos pero se reestablecerá solo la mitad d" &
+        "e tus intentos fallidos")
         Me.RadioButton2.UseVisualStyleBackColor = False
         '
         'Label9
@@ -225,6 +236,56 @@ Partial Class Form1
         Me.ToolTip1.SetToolTip(Me.boton_min, "Minimizar")
         Me.boton_min.UseVisualStyleBackColor = False
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.BackgroundImage = Global.Ahorcado.My.Resources.Resources.score
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BurlyWood
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.BurlyWood
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Location = New System.Drawing.Point(435, 656)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(50, 50)
+        Me.Button3.TabIndex = 17
+        Me.ToolTip1.SetToolTip(Me.Button3, "Ranking")
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Tan
+        Me.Panel1.Location = New System.Drawing.Point(549, 1)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1, 730)
+        Me.Panel1.TabIndex = 18
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Tan
+        Me.Panel2.Location = New System.Drawing.Point(0, 1)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1, 730)
+        Me.Panel2.TabIndex = 19
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Tan
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(550, 1)
+        Me.Panel3.TabIndex = 19
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.Tan
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(0, 729)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(550, 1)
+        Me.Panel4.TabIndex = 19
+        '
         'Form1
         '
         Me.AcceptButton = Me.Button1
@@ -232,6 +293,11 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(550, 730)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.boton_min)
         Me.Controls.Add(Me.boton_cerrar)
         Me.Controls.Add(Me.Label9)
@@ -275,4 +341,9 @@ Partial Class Form1
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents boton_cerrar As Button
     Friend WithEvents boton_min As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
 End Class
